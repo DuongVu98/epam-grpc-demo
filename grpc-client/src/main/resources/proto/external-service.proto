@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.epam.proto";
+
+service EventProducer {
+  rpc SendCommand (UpdateCommand) returns (Response) {}
+}
+
+message UpdateCommand {
+  string userId = 1;
+  string info = 2;
+}
+
+message Response {
+  string message = 1;
+}
