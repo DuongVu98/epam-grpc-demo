@@ -1,41 +1,63 @@
 package com.epam.proto;
 
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
+import static io.grpc.stub.ClientCalls.blockingUnaryCall;
+import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.0.1)",
+    value = "by gRPC proto compiler (version 1.19.0)",
     comments = "Source: external-service.proto")
-public class EventProducerGrpc {
+public final class EventProducerGrpc {
 
   private EventProducerGrpc() {}
 
   public static final String SERVICE_NAME = "EventProducer";
 
   // Static method descriptors that strictly reflect the proto.
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.epam.proto.ExternalService.UpdateCommand,
-      com.epam.proto.ExternalService.Response> METHOD_SEND_COMMAND =
-      io.grpc.MethodDescriptor.create(
-          io.grpc.MethodDescriptor.MethodType.UNARY,
-          generateFullMethodName(
-              "EventProducer", "SendCommand"),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.epam.proto.ExternalService.UpdateCommand.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.epam.proto.ExternalService.Response.getDefaultInstance()));
+  private static volatile io.grpc.MethodDescriptor<com.epam.proto.ExternalService.UpdateCommand,
+      com.epam.proto.ExternalService.Response> getSendCommandMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SendCommand",
+      requestType = com.epam.proto.ExternalService.UpdateCommand.class,
+      responseType = com.epam.proto.ExternalService.Response.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.epam.proto.ExternalService.UpdateCommand,
+      com.epam.proto.ExternalService.Response> getSendCommandMethod() {
+    io.grpc.MethodDescriptor<com.epam.proto.ExternalService.UpdateCommand, com.epam.proto.ExternalService.Response> getSendCommandMethod;
+    if ((getSendCommandMethod = EventProducerGrpc.getSendCommandMethod) == null) {
+      synchronized (EventProducerGrpc.class) {
+        if ((getSendCommandMethod = EventProducerGrpc.getSendCommandMethod) == null) {
+          EventProducerGrpc.getSendCommandMethod = getSendCommandMethod = 
+              io.grpc.MethodDescriptor.<com.epam.proto.ExternalService.UpdateCommand, com.epam.proto.ExternalService.Response>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "EventProducer", "SendCommand"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.epam.proto.ExternalService.UpdateCommand.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.epam.proto.ExternalService.Response.getDefaultInstance()))
+                  .setSchemaDescriptor(new EventProducerMethodDescriptorSupplier("SendCommand"))
+                  .build();
+          }
+        }
+     }
+     return getSendCommandMethod;
+  }
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -53,7 +75,7 @@ public class EventProducerGrpc {
   }
 
   /**
-   * Creates a new ListenableFuture-style stub that supports unary and streaming output calls on the service
+   * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
   public static EventProducerFutureStub newFutureStub(
       io.grpc.Channel channel) {
@@ -68,13 +90,13 @@ public class EventProducerGrpc {
      */
     public void sendCommand(com.epam.proto.ExternalService.UpdateCommand request,
         io.grpc.stub.StreamObserver<com.epam.proto.ExternalService.Response> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_SEND_COMMAND, responseObserver);
+      asyncUnimplementedUnaryCall(getSendCommandMethod(), responseObserver);
     }
 
-    @java.lang.Override public io.grpc.ServerServiceDefinition bindService() {
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            METHOD_SEND_COMMAND,
+            getSendCommandMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 com.epam.proto.ExternalService.UpdateCommand,
@@ -107,7 +129,7 @@ public class EventProducerGrpc {
     public void sendCommand(com.epam.proto.ExternalService.UpdateCommand request,
         io.grpc.stub.StreamObserver<com.epam.proto.ExternalService.Response> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_SEND_COMMAND, getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSendCommandMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -133,7 +155,7 @@ public class EventProducerGrpc {
      */
     public com.epam.proto.ExternalService.Response sendCommand(com.epam.proto.ExternalService.UpdateCommand request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_SEND_COMMAND, getCallOptions(), request);
+          getChannel(), getSendCommandMethod(), getCallOptions(), request);
     }
   }
 
@@ -160,13 +182,13 @@ public class EventProducerGrpc {
     public com.google.common.util.concurrent.ListenableFuture<com.epam.proto.ExternalService.Response> sendCommand(
         com.epam.proto.ExternalService.UpdateCommand request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_SEND_COMMAND, getCallOptions()), request);
+          getChannel().newCall(getSendCommandMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_SEND_COMMAND = 0;
 
-  private static class MethodHandlers<Req, Resp> implements
+  private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
@@ -174,7 +196,7 @@ public class EventProducerGrpc {
     private final EventProducerImplBase serviceImpl;
     private final int methodId;
 
-    public MethodHandlers(EventProducerImplBase serviceImpl, int methodId) {
+    MethodHandlers(EventProducerImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -203,9 +225,56 @@ public class EventProducerGrpc {
     }
   }
 
-  public static io.grpc.ServiceDescriptor getServiceDescriptor() {
-    return new io.grpc.ServiceDescriptor(SERVICE_NAME,
-        METHOD_SEND_COMMAND);
+  private static abstract class EventProducerBaseDescriptorSupplier
+      implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
+    EventProducerBaseDescriptorSupplier() {}
+
+    @java.lang.Override
+    public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
+      return com.epam.proto.ExternalService.getDescriptor();
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
+      return getFileDescriptor().findServiceByName("EventProducer");
+    }
   }
 
+  private static final class EventProducerFileDescriptorSupplier
+      extends EventProducerBaseDescriptorSupplier {
+    EventProducerFileDescriptorSupplier() {}
+  }
+
+  private static final class EventProducerMethodDescriptorSupplier
+      extends EventProducerBaseDescriptorSupplier
+      implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
+    private final String methodName;
+
+    EventProducerMethodDescriptorSupplier(String methodName) {
+      this.methodName = methodName;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Descriptors.MethodDescriptor getMethodDescriptor() {
+      return getServiceDescriptor().findMethodByName(methodName);
+    }
+  }
+
+  private static volatile io.grpc.ServiceDescriptor serviceDescriptor;
+
+  public static io.grpc.ServiceDescriptor getServiceDescriptor() {
+    io.grpc.ServiceDescriptor result = serviceDescriptor;
+    if (result == null) {
+      synchronized (EventProducerGrpc.class) {
+        result = serviceDescriptor;
+        if (result == null) {
+          serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
+              .setSchemaDescriptor(new EventProducerFileDescriptorSupplier())
+              .addMethod(getSendCommandMethod())
+              .build();
+        }
+      }
+    }
+    return result;
+  }
 }
