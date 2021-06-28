@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "com.epam.proto";
+
+service HotelServiceGrpc {
+    rpc SayHello(HelloRequestProtobuf) returns (HelloResponseProtobuf);
+    rpc LotsOfReplies(HelloRequestProtobuf) returns (stream HelloResponseProtobuf);
+    rpc LotsOfGreetings(stream HelloRequestProtobuf) returns (HelloResponseProtobuf);
+    rpc BidiHello(stream HelloRequestProtobuf) returns (stream HelloResponseProtobuf);
+}
+
+message HelloRequestProtobuf {
+    string requestMessage = 1;
+    int32 requestNumber = 2;
+}
+
+message HelloResponseProtobuf {
+    string responseMessage = 1;
+    int32 responseNumber = 2;
+}

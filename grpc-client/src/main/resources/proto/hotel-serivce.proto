@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "com.epam.proto";
+
+service HotelServiceGrpc {
+    rpc GetRoomByUser (UserProtobuf) returns (RoomProtobuf) {}
+}
+
+message UserProtobuf {
+    string userId = 1;
+    string hotelId = 2;
+}
+
+message RoomProtobuf {
+    string roomId = 1;
+    string roomTypeId = 2;
+}
