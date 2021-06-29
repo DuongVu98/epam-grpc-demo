@@ -2,17 +2,17 @@ grpc:
   server:
     port: 9091
   client:
-    local-greeting-service:
+    local-spring-server:
       address: 'static://127.0.0.1:9090'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
-    cloud-greeting-service:
+    cloud-spring-service:
       address: 'discovery:///server-app'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
-    nest-hotel-service:
+    local-nest-server:
       address: 'static://localhost:9092'
       enableKeepAlive: true
       keepAliveWithoutCalls: true

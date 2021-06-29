@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-option java_package = "com.epam.proto";
-
 package hotelservice;
 
 service HotelService {
