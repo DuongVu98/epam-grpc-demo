@@ -2,17 +2,17 @@ grpc:
   server:
     port: 9091
   client:
-    local-grpc-server:
+    local-greeting-service:
       address: 'static://127.0.0.1:9090'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
-    cloud-grpc-server:
+    cloud-greeting-service:
       address: 'discovery:///server-app'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
-    golang-grpc-server:
+    nest-hotel-service:
       address: 'static://localhost:9092'
       enableKeepAlive: true
       keepAliveWithoutCalls: true

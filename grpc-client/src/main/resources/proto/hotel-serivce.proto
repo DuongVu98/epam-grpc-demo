@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_package = "com.epam.proto";
 
-service HotelServiceGrpc {
+service HotelService {
     rpc GetRoomByUser (UserProtobuf) returns (RoomProtobuf) {}
 }
 
